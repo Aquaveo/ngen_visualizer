@@ -19,7 +19,7 @@ def convert_gpkg_to_geojson(gpkg_path, layer_name, output_path):
         gdf = gdf.to_crs(epsg=4326)
 
     # Save the GeoDataFrame as a GeoJSON file
-    gdf.to_file(output_path, driver="GeoJSON")
+    gdf.to_crs(f"EPSG:4326").to_file(output_path, driver="GeoJSON")
 
 
 def main():
